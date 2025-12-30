@@ -78,3 +78,35 @@ def open_website(website):
         return f"Opened {website}"
     except Exception:
         return "Sorry, I couldn't open that website."
+    
+# Command Parser
+
+def parse_command(command):
+    if not command:
+        return "I didn't catch that. Please say again"
+    elif "time" in command:
+        return tell_time
+    elif "date" in command:
+        return tell_date
+    elif "search" in command:
+        site = command.replace('search','').strip()
+        return Search(site)
+    elif "open" in command:
+        site = command.replace('open','').strip()
+        return open_website()
+    elif "exit" in command or "quit" in command:
+        return "exit"
+    else:
+        return "Sorry I couldn't do that. Please say again"
+
+speak("Hello! What can I do for you today?")
+
+while True:
+    command = listen()
+    result = parse_command(command)
+
+    if result == "exit":
+        speak("Goodbye!!")
+        break 
+
+    speak(result)
