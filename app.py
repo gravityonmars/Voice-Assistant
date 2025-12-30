@@ -44,3 +44,9 @@ def listen():
 def tell_time():
     now = datetime.date.today()
     return f"The current time is {now.strftime('%I:%M %p')}"
+
+# Date Function
+
+def tell_date():
+    today = datetime.date.today()
+    return f"Today is {today.strftime('%A, %B %d, %Y')}"
