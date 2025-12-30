@@ -63,3 +63,18 @@ def Search(website):
     webbrowser.open(url)
     return f"Opened {website}"
 
+# Open Function
+
+def open_website(website):
+    if not website:
+        return "Which Website should I open?"
+    website = website.lower().replace("","")
+
+    if not website.startwith("http"):
+        website = "https://" + website
+
+    try:
+        webbrowser.open(website)
+        return f"Opened {website}"
+    except Exception:
+        return "Sorry, I couldn't open that website."
