@@ -50,3 +50,16 @@ def tell_time():
 def tell_date():
     today = datetime.date.today()
     return f"Today is {today.strftime('%A, %B %d, %Y')}"
+
+# Search Function 
+
+def Search(website):
+    if not website:
+        return "Please Specify what to Search."
+    if "." not in website:
+        url = f"https://www.google.com/search?q={website}"
+    else:
+        url = "https://"+ website
+    webbrowser.open(url)
+    return f"Opened {website}"
+
