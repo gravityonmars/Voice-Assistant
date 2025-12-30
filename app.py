@@ -39,4 +39,8 @@ def listen():
         print("API error: ", e)
         return None
     
-    
+# Time Function
+
+def tell_time():
+    now = datetime.date.today()
+    return f"The current time is {now.strftime('%I:%M %p')}"
